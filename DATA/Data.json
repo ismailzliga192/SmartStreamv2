@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "channelNumber": "1057",
+    "name": "FR - DISCOVERY ID FHD",
+    "category": "DOCUMENTAIRE",
+    "logo": "https://via.placeholder.com/60x60?text=Discovery",
+    "previewImage": "https://via.placeholder.com/800x450?text=Discovery+Show"
+  },
+  {
+    "id": "2",
+    "channelNumber": "1058",
+    "name": "FR - TLC FHD",
+    "category": "DOCUMENTAIRE",
+    "logo": "https://via.placeholder.com/60x60?text=TLC",
+    "previewImage": "https://via.placeholder.com/800x450?text=TLC+Show"
+  },
+  {
+    "id": "3",
+    "channelNumber": "1067",
+    "name": "FR - RMC DECOUVERTE FHD",
+    "category": "DOCUMENTAIRE",
+    "logo": "https://via.placeholder.com/60x60?text=RMC",
+    "previewImage": "https://via.placeholder.com/800x450?text=RMC+Show"
+  }
+]
