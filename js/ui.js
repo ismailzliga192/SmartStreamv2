@@ -1,4 +1,4 @@
-import { channelsData , FavoriteBlacklist } from "./app.js";
+import { getChannels } from "./api.js";
 import { filtercountry , SearchChannels } from "./search.js";
 
 
@@ -7,16 +7,11 @@ const channel = document.getElementById('channel');
 const popout = document.getElementById("popout-page");
 const openButton = document.getElementById("open-popout");
 const closeButton = document.getElementById("close-popout");
+const img_load = document.getElementById('imgload');
+const info_load = document.getElementById('info_load');
 
 
-async function getData() {
-    const data = await channelsData();
-    console.log("main:  ",data);
-    displayChannels(data);
-    
-}
-getData();
-function displayChannels(List) {
+export function renderChannels(List) {
     channel.innerHTML = List.map((ch) => {
         return `<li class="CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 h-20 w-full border border-white hover:bg-purple-900" data-id="${ch.id}">
                   <div class="flex flex-row gap-2 w-full items-center">
@@ -52,7 +47,7 @@ popout.addEventListener("click", function (event) {
  export async function ChannelsContent(){
       const preview =document.getElementById('imgpreview') 
       const info = document.getElementById('info')
-      const data = await channelsData();
+      const data = await getChannels();
     channel.addEventListener('click', (e) => {
         let screeninfo = e.target.closest('.CHANNELS');
        console.log(screeninfo)
@@ -98,11 +93,15 @@ export function changeBgChannel() {
     });
 }
 
+export function loading(){
+    img_load.classList.remove('hidden');
+    info_load.classList.remove('hidden');
+}
+
 ChannelsContent();
 filtercountry();
 SearchChannels();
 changeBgChannel();
-FavoriteBlacklist();
 
 
 

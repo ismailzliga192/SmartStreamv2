@@ -1,11 +1,12 @@
-import { channelsData } from "./app.js";
+import { getChannels } from "./api.js";
 
 
 const country = document.getElementById('categories');
 const channel = document.getElementById('channel');
+const favorite = document.getElementById('fav');
 
 export async function filtercountry(){
-   const data = await channelsData() 
+   const data = await getChannels() 
    country.addEventListener('click', (event) => {
 
      if(event.target.tagName === 'BUTTON'){
@@ -56,7 +57,7 @@ export async function filtercountry(){
 
 export async function SearchChannels() {
     const search = document.getElementById('search')
-    const data = await channelsData();
+    const data = await getChannels();
     search.addEventListener('input', (S) =>{
        const value = search.value.toLowerCase();
        const chfilter = data.filter(e => e.name.toLowerCase().includes(value))
