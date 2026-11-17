@@ -13,23 +13,35 @@ export async function filtercountry(){
         data.forEach(element =>{
             if(element.country === event.target.id){
                 const list = document.createElement('li');
-                list.className = "CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 text-white h-20 w-full border border-white hover:bg-purple-900"
+                list.className = "CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 h-20 w-full border border-white hover:bg-purple-900"
                 list.dataset.id = element.id
                 list.innerHTML=`
                   <div class="flex flex-row gap-2 w-full items-center">
                      <img src="${element.logo}" alt="${element.name}"></img>
-                     <p>${element.name}</p>
+                      <div class="flex flex-row items-center justify-between gap-2 w-full">
+                       <p class="text-white">${element.name}</p>
+                       <div>
+                       <button id="fav" class="text-2xl text-white">☆</button>
+                       <button id="ban" class="text-2xl text-red-700">🛇</button>
+                       </div>
+                     </div>  
                   </div>
                 `;
                 channel.appendChild(list)
             }else if(event.target.id === 'ALL'){
                 const list = document.createElement('li');
-                list.className = "CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 text-white h-20 w-full border border-white hover:bg-purple-900"
+                list.className = "CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 h-20 w-full border border-white hover:bg-purple-900"
                 list.dataset.id = element.id
                 list.innerHTML=`
                   <div class="flex flex-row gap-2 w-full items-center">
                      <img src="${element.logo}" alt="${element.name}"></img>
-                     <p>${element.name}</p>
+                    <div class="flex flex-row items-center justify-between gap-2 w-full">
+                       <p class="text-white">${element.name}</p>
+                       <div>
+                         <button id="fav" class="text-2xl text-white">☆</button>
+                         <button id="ban" class="text-2xl text-red-700">🛇</button>
+                       </div>
+                     </div>  
                   </div>
                 `;
                 channel.appendChild(list)
@@ -51,12 +63,18 @@ export async function SearchChannels() {
        channel.innerHTML='';
        chfilter.forEach(element =>{
          const list = document.createElement('li');
-                list.className = "CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 text-white h-20 w-full border border-white hover:bg-purple-900"
+                list.className = "CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 h-20 w-full border border-white hover:bg-purple-900"
                 list.dataset.id = element.id
                 list.innerHTML=`
                   <div class="flex flex-row gap-2 w-full items-center">
                      <img src="${element.logo}" alt="${element.name}"></img>
-                     <p>${element.name}</p>
+                     <div class="flex flex-row items-center justify-between gap-2 w-full">
+                       <p class="text-white">${element.name}</p>
+                       <div>
+                       <button id="fav" class="text-2xl text-white">☆</button>
+                       <button id="ban" class="text-2xl text-red-700">🛇</button>
+                       </div>
+                     </div>  
                   </div>
                 `;
                 channel.appendChild(list)

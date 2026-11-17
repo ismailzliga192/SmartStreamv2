@@ -1,4 +1,4 @@
-import { channelsData } from "./app.js";
+import { channelsData , FavoriteBlacklist } from "./app.js";
 import { filtercountry , SearchChannels } from "./search.js";
 
 
@@ -18,10 +18,16 @@ async function getData() {
 getData();
 function displayChannels(List) {
     channel.innerHTML = List.map((ch) => {
-        return `<li class="CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 text-white h-20 w-full border border-white hover:bg-purple-900" data-id="${ch.id}">
+        return `<li class="CHANNELS flex flex-row cursor-pointer gap-0.5 bg-purple-600 h-20 w-full border border-white hover:bg-purple-900" data-id="${ch.id}">
                   <div class="flex flex-row gap-2 w-full items-center">
                      <img src="${ch.logo}" alt="${ch.name}"></img>
-                     <p>${ch.name}</p>
+                     <div class="flex flex-row items-center justify-between gap-2 w-full">
+                       <p class="text-white">${ch.name}</p>
+                       <div>
+                       <button id="fav" class="text-2xl text-white">☆</button>
+                       <button id="ban" class="text-2xl text-red-700">🛇</button>
+                       </div>
+                     </div>  
                   </div>
                 </li>`;
     }).join('');    
@@ -96,7 +102,7 @@ ChannelsContent();
 filtercountry();
 SearchChannels();
 changeBgChannel();
-
+FavoriteBlacklist();
 
 
 
