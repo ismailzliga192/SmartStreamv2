@@ -14,7 +14,7 @@ export const getChannels = async () => {
 
 // POST : ajouter une chaîne
 // Cette fonction reçoit l'objet de la nouvelle chaîne
-export const createChannel = async (channel) => {
+export async  function createChannel(channel){
   // Je fais une requête avec la méthode POST pour créer une ressource
   const response = await fetch(API_URL, {
     // Méthode HTTP utilisée : POST = créer
@@ -24,6 +24,7 @@ export const createChannel = async (channel) => {
     // Je transforme l'objet en texte JSON pour l'envoyer
     body: JSON.stringify(channel),
   });
+  console.log('hsdgq');
   // Je vérifie que la création s'est bien passée
   if (!response.ok) throw new Error(`Erreur ${response.status}`);
   // Je renvoie la chaîne créée, avec son id généré par MockAPI

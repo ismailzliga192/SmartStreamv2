@@ -21,9 +21,10 @@ export async function filtercountry(){
                      <img src="${element.logo}" alt="${element.name}"></img>
                       <div class="flex flex-row items-center justify-between gap-2 w-full">
                        <p class="text-white">${element.name}</p>
-                       <div>
-                       <button id="fav" class="text-2xl text-white">☆</button>
-                       <button id="ban" class="text-2xl text-red-700">🛇</button>
+                       <div data-id="${element.id}">
+                       <button data-action="favorite" id="fav" class="fv text-2xl text-yellow-300">${element.isFavorite === true ? "★" : "☆"}</button>
+                       <button data-id="blacklist" id="ban" class="text-2xl text-red-700">🛇</button>
+                       <button data-action="delete" class="text-black text-2xl">🗑</button>
                        </div>
                      </div>  
                   </div>
@@ -38,9 +39,10 @@ export async function filtercountry(){
                      <img src="${element.logo}" alt="${element.name}"></img>
                     <div class="flex flex-row items-center justify-between gap-2 w-full">
                        <p class="text-white">${element.name}</p>
-                       <div>
-                         <button id="fav" class="text-2xl text-white">☆</button>
-                         <button id="ban" class="text-2xl text-red-700">🛇</button>
+                       <div data-id="${element.id}">
+                       <button data-action="favorite" id="fav" class="fv text-2xl text-yellow-300">${element.isFavorite === true ? "★" : "☆"}</button>
+                       <button data-id="blacklist" id="ban" class="text-2xl text-red-700">🛇</button>
+                       <button data-action="delete" class="text-black text-2xl">🗑</button>
                        </div>
                      </div>  
                   </div>
@@ -58,7 +60,7 @@ export async function filtercountry(){
 export async function SearchChannels() {
     const search = document.getElementById('search')
     const data = await getChannels();
-    search.addEventListener('input', (S) =>{
+    search.addEventListener('input', (e) =>{
        const value = search.value.toLowerCase();
        const chfilter = data.filter(e => e.name.toLowerCase().includes(value))
        channel.innerHTML='';
@@ -71,9 +73,10 @@ export async function SearchChannels() {
                      <img src="${element.logo}" alt="${element.name}"></img>
                      <div class="flex flex-row items-center justify-between gap-2 w-full">
                        <p class="text-white">${element.name}</p>
-                       <div>
-                       <button id="fav" class="text-2xl text-white">☆</button>
-                       <button id="ban" class="text-2xl text-red-700">🛇</button>
+                       <div data-id="${element.id}">
+                       <button data-action="favorite" id="fav" class="fv text-2xl text-yellow-300">${element.isFavorite === true ? "★" : "☆"}</button>
+                       <button data-id="blacklist" id="ban" class="text-2xl text-red-700">🛇</button>
+                       <button data-action="delete" class="text-black text-2xl">🗑</button>
                        </div>
                      </div>  
                   </div>
